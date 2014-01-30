@@ -1,0 +1,1 @@
+_site 是jekyll生成的网站文件，所以要添加到.gitignore中
