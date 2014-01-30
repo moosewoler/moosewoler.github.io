@@ -1,0 +1,10 @@
+---
+layout: post
+title: 我的第一篇github博客
+tags: 测试
+---
+
+这是我在github上发布的第一篇博客。用markdown语法写博客还是
+不错的。
+
+以后会慢慢的把163上的博文搬移过来。
