@@ -1,0 +1,63 @@
+---
+layout: post
+title: 让github博客可以显示公式
+date: 2014-02-02 23:54:00
+tags: markdown latex mathjax github
+---
+
+1.什么是MathJax
+---------------
+
+MathJax是一款用来显示公式的开源的JavaScript引擎。
+
+2.如何操作
+----------
+
+详细操作步骤请看[MathJax手册](http://docs.mathjax.org/en/latest/)。
+
+简要叙述一下，分两步：
+
+第一步：在\_layout/default.html中</head>之前添加如下代码：
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+即可。完成后的网页代码应该是这样子的：
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+...
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+...
+</head>
+<body>
+	...
+</body>
+</html>
+```
+
+第二步：在写markdown文档的时候，用分割符把TeX公式括起来即可。
+
+例如：
+
+	"
+	When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
+	$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+	"
+
+显示出来是这个样子的：
+
+When $a \ne 0$, there are two solutions to \\(ax^2 + bx + c = 0\\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
