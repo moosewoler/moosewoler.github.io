@@ -10,18 +10,24 @@
 	{% include headend.html %}
 
 	<body class="wrap">
-		{% include header.html %}
 
-		<h2>{{ page.title }}</h2>
-		<div class="grid">
-			<p class="meta">{{ page.date | date_to_string }}</p>
-			<div class="post">
-				{{ content }}
-			</div>
-		</div>
+            {% include header.html %}
 
+            <!--	
+            <h2>{{ page.title }}</h2>
+            <div class="grid">
+                <p class="meta">{{ page.date | date_to_string }}</p>
+                <p class="meta">{{ page.categries }}</p>
+                <p class="meta">{{ page.tags }}</p>
+                <div class="post">
+                    {{ content }}
+                </div>
+            </div>
+            -->
 
-		{% include footer.html %}
+            {% include journal_page.html %}
+
+            {% include footer.html %}
 		{% include analytics.html %}
 	</body>
 </html>

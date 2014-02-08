@@ -1,0 +1,33 @@
+<div class="grid">
+    <div class="journal_header unit half hidden-on-mobiles">
+        {{ page.date }}
+    </div>
+    <div class="journal_body">
+        <div class="journal_title">
+            {{ page.title }}
+        </div>
+        <div class="journal_author">
+            {{ page.author }}
+        </div>
+        <div class="journal_date">
+            {{ page.date }}
+        </div>
+        <div class="journal_abstract">
+            {{ page.abstract }}
+        </div>
+        <div class="journal_keyword">
+            {% for tag in page.tags %}
+            <li>
+                {{ tag }}
+            </li>
+            {% endfor %}
+        </div>
+        <div class="journal_text">
+            {{ content }}
+        </div>
+        <div class="journal_reference">
+        </div>
+    </div>
+    <div class="journal_footer">
+    </div>
+</div>

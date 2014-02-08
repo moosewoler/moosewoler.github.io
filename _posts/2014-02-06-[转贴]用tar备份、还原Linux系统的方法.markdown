@@ -2,12 +2,18 @@
 layout: post
 title: （转帖）用tar备份、还原Linux系统的方法  
 date: 2014-02-06
-tags: linux tar 备份 还原
+categories: 
+ - 网站
+tags: 
+ - linux 
+ - tar 
+ - 备份 
+ - 还原
 ---
 
 引言：以下内容在Unix教科书就有，不用就忘。转一个备查。照例原文地址：
 
-http://blog.csdn.net/su\_linux/article/details/6425777
+[http://blog.csdn.net/su_linux/article/details/6425777](http://blog.csdn.net/su_linux/article/details/6425777)
 
 
 原文（少许修改）如下
