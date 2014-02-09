@@ -1,0 +1,58 @@
+---
+layout: post
+title: 调制深度
+author: 王俊
+abstract: 调制深度描述了被调制的变量在载波上变化的范围。在不同的调制策略上具有不同的定义。
+categories: 
+ - 自己个的学报
+tags: 
+ - modulation_index
+ - 调制深度
+ - 调制指数
+date: 2014-02-09 10:00:00
+---
+
+## 0 引言
+
+调制深度（modulation index，modulation depth，modulation ratio，调制比）描述了被
+调制的变量在载波上变化的范围。在不同的调制策略上具有不同的定义。
+
+## 1 调幅、调频和调相技术中的调制深度
+
+对于正弦PWM来说，调制深度的定义如下：
+
+设正弦调制信号的幅值为\\(A\_m\\)，三角载波信号的幅值为\\(A\_c\\)，定义调制深度为：
+
+$$
+m = \frac{A\_m}{A\_c}
+$$
+
+<div class="note info">
+  <h5>注意：</h5>
+  <p>
+        控制调整深度就是控制输出电压的幅值。
+  </p>
+</div>
+
+正常情况下应该让\\(m \le 1\\)，当\\(m>1\\)时，就发生了所谓的__“过调制”__现象。发
+生过调制后，调制波会超过载波，导致有些三角波与调制信号没有交点，如图1所示。
+
+![图1 过调制，m=1.3](http://c.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=9b1f4b67324e251fe6f7e4fd97bdb82a/960a304e251f95ca0be37bebcb177f3e6709525d.jpg?referer=884d0c7b0b24ab18b901d4079e33&x=.jpg "图1 过调制，m=1.3")
+
+图1 过调制，m=1.3
+
+这时输出电压波形会变差，即谐波分量增大，理论上应该避免出现“过调制”现象。不过实际
+中允许利用一定程度的过调制，来获得更大的交流电压（基波分量）。理论上过调制能达到
+的最大输出电压幅值（基波分量）为\[[2]\]：
+
+$$
+A\_{max} = \frac{4}{\pi\sqrt{2}}A\_c
+$$
+
+## 参考文献
+\[1\] [Sinusoidal Pulse width modulation][1]
+
+\[2\] [邱关源。电路\[M\]。第四版。北京：高等教育出版社，1999:266-268。][2]
+
+[1]: http://educypedia.karadimov.info/library/spwm.pdf "Sinusoidal Pulse width modulation"
+[2]: http://no.such.link "邱关源。电路[M]。第四版。北京：高等教育出版社，1999:266-268。"

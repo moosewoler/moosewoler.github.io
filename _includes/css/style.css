@@ -11,6 +11,7 @@ body {
   font-size: 21px;
   font-weight: normal;
   color: rgba(0, 0, 0, 1);
+  background: #ddd;
   border-top: 5px solid rgba(0, 100, 255, 1);
 }
 
@@ -39,6 +40,7 @@ body > header, body > section, body > footer {
 body > header {
   background: rgba(0, 100, 255, 1);
   color: #fff;
+  margin-bottom: 20px;
 }
 
 body > header a {
@@ -148,7 +150,7 @@ body > footer {
   font-size: 16px;
   padding-bottom: 5px;
   color: #fff;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 body > footer a {
@@ -164,7 +166,7 @@ body > footer img {
   top: 8px;
   margin-left: 5px;
   width: 100px;
-  height: 30px;
+  height: 40px;
   opacity: .8;
   padding: 1px;
   -webkit-transition: opacity .2s;
@@ -959,4 +961,10 @@ code.option, code.flag, code.filter, code.output {
     margin: 0 -40px;
     padding: 0 10px;
   }
+}
+
+/* Journal Style*/
+.journal_container {
+   background: #fff;
+   box-shadow: 0px 3px 3px #111;
 }
