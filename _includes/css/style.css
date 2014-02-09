@@ -968,3 +968,11 @@ code.option, code.flag, code.filter, code.output {
    background: #fff;
    box-shadow: 0px 3px 3px #111;
 }
+.journal_keyword {
+    float:left;
+}
+.journal_keyword li {
+    list-style:none;
+    display:inline;
+    margin-left: 5px;
+}
