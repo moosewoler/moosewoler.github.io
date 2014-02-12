@@ -38,7 +38,7 @@ body > header, body > section, body > footer {
 /* Header */
 
 body > header {
-  background: rgba(0, 100, 255, 1);
+  background: url("http://img.bimg.126.net/photo/sM3UbshiNffoI-4WI-3H9A==/5779244221823515636.jpg") repeat-x scroll right top rgb(204, 206, 208);
   color: #fff;
   margin-bottom: 20px;
 }
@@ -146,7 +146,7 @@ nav li {
 /* Footer */
 
 body > footer {
-  background: rgba(0, 100, 255, 1);
+  background: url("http://img.bimg.126.net/photo/sM3UbshiNffoI-4WI-3H9A==/5779244221823515636.jpg") repeat-x scroll right top rgb(204, 206, 208);
   font-size: 16px;
   padding-bottom: 5px;
   color: #fff;
