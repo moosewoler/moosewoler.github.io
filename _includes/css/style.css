@@ -12,7 +12,7 @@ body {
   font-weight: normal;
   color: rgba(0, 0, 0, 1);
   background: #ddd;
-  /*border-top: 5px solid rgba(0, 100, 255, 1);*/
+  border-top: 5px solid rgba(0, 100, 255, 1);
 }
 
 .clear {
@@ -38,7 +38,7 @@ body > header, body > section, body > footer {
 /* Header */
 
 body > header {
-  background: url("http://d.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=4665b0993b01213fcb334ed964dc47ec/00e93901213fb80eb099e59734d12f2eb9389422.jpg?referer=1621e73e9058d1099df49d82d4e0&x=.jpg")  repeat-x scroll right top rgb(204, 206, 208);
+  background: rgba(0, 100, 255, 1);
   color: #fff;
   margin-bottom: 20px;
 }
@@ -146,7 +146,7 @@ nav li {
 /* Footer */
 
 body > footer {
-  background: url("http://d.hiphotos.bdimg.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=4665b0993b01213fcb334ed964dc47ec/00e93901213fb80eb099e59734d12f2eb9389422.jpg?referer=1621e73e9058d1099df49d82d4e0&x=.jpg")  repeat-x scroll right top rgb(204, 206, 208);
+  background: rgba(0, 100, 255, 1);
   font-size: 16px;
   padding-bottom: 5px;
   color: #fff;
