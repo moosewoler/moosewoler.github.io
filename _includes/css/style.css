@@ -980,3 +980,12 @@ code.option, code.flag, code.filter, code.output {
     padding-left: 40px;
     padding-right: 40px;
 }
+
+@media screen and (max-width: 568px) {
+.journal_body {
+    font-size: 12px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+}
