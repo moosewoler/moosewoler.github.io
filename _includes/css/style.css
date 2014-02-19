@@ -976,3 +976,7 @@ code.option, code.flag, code.filter, code.output {
     display:inline;
     margin-left: 5px;
 }
+.journal_body {
+    padding-left: 40px;
+    padding-right: 40px;
+}
