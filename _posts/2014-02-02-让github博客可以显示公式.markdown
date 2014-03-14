@@ -28,7 +28,7 @@ MathJax是一款用来显示公式的开源的JavaScript引擎。
 
 即可。完成后的网页代码应该是这样子的：
 
-```
+{% highlight html linenos %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +45,7 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
 	...
 </body>
 </html>
-```
+{% endhighlight %}
 
 第二步：在写markdown文档的时候，用分割符把TeX公式括起来即可。
 

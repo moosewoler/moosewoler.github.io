@@ -12,7 +12,11 @@
 
     {% include header.html %}
 
-    {{ content }}
+    <div class="grid unit">
+        <div class="journal_container journal_body">
+            {{ content }}
+        </div>
+    </div>
 
     {% include footer.html %}
     {% include analytics.html %}
