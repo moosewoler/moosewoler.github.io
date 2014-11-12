@@ -1,5 +1,5 @@
 ---
-layout: post_page
+layout: post
 title: "用jekyll在github上写博客"
 author: "Moose W. Oler"
 abstract: "本文介绍了如何在github上写博客。涉及到用jekyll本地调试的一些内容。"
