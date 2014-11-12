@@ -4,12 +4,23 @@ title: 主页
 ---
 <!-- Content
     ================================================== -->
-  <div class="top-strip"></div>
+    <div class="top-strip">
+        <div class="container">
+            <ul style="margin:auto; width:40em">
+                {% for category in site.categories %}
+                <li class="navi">
+                {{ category | first }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
   <div class="content">
     <main class="container">
     	<div class="row-fluid">
     		<section class="content">
             <h1><i class="icon-github-alt"></i>Moose W. Oler的Github博客<i class="icon-github-alt"></i></h1>
+
     		</section>
     		<ul class="entries">
     		{% for post in paginator.posts %}

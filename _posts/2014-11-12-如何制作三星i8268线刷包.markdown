@@ -1,0 +1,19 @@
+---
+layout: post
+title: "如何制作三星i8268线刷包"
+author: "Moose W. Oler"
+abstract: "介绍了如何制作三星i8268线刷包以及线刷的方法。"
+categories: 
+ - 玩意儿
+tags: 
+ - 三星手机
+ - 线刷包
+ - odin
+date: 2014-11-12 15:00:00
+---
+
+[教你如何制作tar.md5](http://bbs.gfan.com/android-5589502-1-1.html)
+
+[修改system.img的大小限制](http://www.xue5.com/Mobile/Mobile/689206.html)
+
+[How to pack and unpack system.img and userdata.img from an Android factory image](http://muzso.hu/2012/08/10/how-to-pack-and-unpack-system.img-and-userdata.img-from-an-android-factory-image)

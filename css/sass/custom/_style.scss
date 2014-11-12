@@ -82,7 +82,7 @@ main.container, main.content > .container{
 
 .top-strip{
     background-color: $black;
-    height: 1em;    
+    height: 1.5em;    
 }
 
 
@@ -196,4 +196,17 @@ footer .container{
         color: $white;
         text-decoration: underline;
     }    
+}
+
+
+// 5. Others
+// --------------------------------------------------
+
+.navi{
+    //border-bottom: 1px solid $grayLighter;
+    color:white;
+    float:left;
+    list-style:none;
+    display:inline;
+    margin-left:20px;
 }
