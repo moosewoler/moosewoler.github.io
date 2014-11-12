@@ -14,7 +14,7 @@ tags:
 date: 2014-04-17 13:00:00
 ---
 
-## 0 引言
+### 0 引言
 
 在做SIMULINK仿真时，有很多解算器（solver）可以使用，比如：
 
@@ -28,7 +28,7 @@ date: 2014-04-17 13:00:00
 
 这些解算器分为两类——“刚性”（stiff）和“非刚性”（nonstiff）的。
 
-## 1 刚性
+### 1 刚性
 
 “刚性”并不是指实际系统的物理特性，而是在对连续系统做仿真时遇到的一个数值问题。“刚
 性”可以简单的认为是模型固有的在几个数量级之间变化的时间常数\[2\]。不同的算法具有
@@ -56,13 +56,13 @@ date: 2014-04-17 13:00:00
     
     ode23tb 刚性        低      适用于精度要求不高的刚性问题。
 
-## 关于刚性的扩展阅读：
+### 关于刚性的扩展阅读：
 
 [Stiff Differential Equations By Cleve Moler](http://www.mathworks.cn/company/newsletters/articles/stiff-differential-equations.html)
 
 [Stiff systems](www.scholarpedia.org/article/Stiff_systems)
 
-## 参考文献
+### 参考文献
 
 \[1\] [百度百科-ode45](http://baike.baidu.com/link?url=i56H2pPWMUbNdtccBa2rAazWA27Neze3loXNd_JdA6aZbMYn0j-MYVmAewFq5hdkHEEgKO_xGpayTC1wl_ZqjK)
 
