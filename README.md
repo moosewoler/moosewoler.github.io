@@ -1,1 +1,10 @@
-_site 是jekyll生成的网站文件，所以要添加到.gitignore中
+#Moose W. Oler的github博客
+
+##架设步骤
+
+
+
+##主题
+
+主题使用_[Vanilla Bean Creme](http://richbray.me/frap/vbc/)_
+
