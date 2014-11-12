@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Mainpage
+title: 主页
 ---
 <!-- Content
     ================================================== -->
@@ -9,7 +9,7 @@ title: Mainpage
     <main class="container">
     	<div class="row-fluid">
     		<section class="content">
-    		  <h1>Ipsum List</h1>
+            <h1><i class="icon-github-alt"></i>Moose W. Oler的Github博客<i class="icon-github-alt"></i></h1>
     		</section>
     		<ul class="entries">
     		{% for post in paginator.posts %}
@@ -17,7 +17,6 @@ title: Mainpage
     		    <a href="{{ post.url }}">
                       <span>{{ post.date | date: "%d %B %Y" }}</span>
     		        <h3>{{ post.title }}</h3>
-                      <div>{{ post.content |truncatehtml | truncatewords: 30 }}</div>
     		    </a>
     		  </li>
     		{% endfor %}

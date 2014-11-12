@@ -1,21 +1,20 @@
 /* TEAM */
                             
-Your title: Your name.                        
-Site: email, link to a contact form, etc.                         
-Twitter: your Twitter username.                        
-Location: City, Country.
+Your title: Moose W. Oler
+Site: moosewoler.github.io
+Location: BJ, PRC.
 
 
 /* THANKS */
 
 HTML5 Muffin
-This is a Frappuccino Blog
-Name: name or url
+This is Moose W. Oler's Blog
+Name: 
 
                             
 /* SITE */
                           
-Last update: YYYY/MM/DD                    
-Standards: HTML5, CSS3,..                   
+Last update: 2014/11/12                    
+Standards: HTML5, CSS3, ..                   
 Components: Modernizr, jQuery, etc.                            
-Software: Software used for the development
+Software: 
