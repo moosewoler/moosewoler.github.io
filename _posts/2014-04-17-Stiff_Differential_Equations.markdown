@@ -4,7 +4,7 @@ title: Stiff Diferential Equations
 author: copied from internet
 abstract: 关于常微分方程中“刚性”概念的介绍
 categories: 
- - 科学
+ - 自己个的学报
 tags: 
  - 常微分方程
  - ordinary differential equations

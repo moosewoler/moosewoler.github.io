@@ -4,7 +4,7 @@ title: How to read Bridgman's book
 author: copied from internet
 abstract: 国外某论坛上的一个提问贴，汇集了一些回答，对学习伯里曼的绘画教材有借鉴意义。
 categories: 
- - 爱好
+ - 玩意儿
 tags: 
  - 伯里曼
  - Bridgman

@@ -1,10 +1,31 @@
 ---
 layout: post
 title: 我的第一篇github博客
+author: Moose W. Oler
+abstract: "关于Moose W. Oler和一些站点的内容" 
 tags: 测试
+categories: 博客建设
 ---
 
-这是我在github上发布的第一篇博客。用markdown语法写博客还是
-不错的。
+这是我在github上发布的第一篇博客。用markdown语法写博客还是不错的。以后会慢慢的把163上的博文搬移过来。
 
-以后会慢慢的把163上的博文搬移过来。
+###关于Moose W. Oler
+
+电力电子专业的工程师。爱好简洁之美。闲暇之时喜欢记录自己工作和生活中的点点滴滴，也是本博客存在的原因。
+
+###有用的链接
+
+[如何用github pages建立博客站点](/博客建设/2014/10/21/用jekyll在github上写博客.html)
+
+[如何配置jekyll站点主题]()
+
+[如何设置访问统计]()
+
+###TODO list
+
+2014-11-16
+
+* 补全本页链接，并完善链接页中内容
+* 如何让搜索引擎对站点内容进行检索
+* 添加disqus评论功能
+

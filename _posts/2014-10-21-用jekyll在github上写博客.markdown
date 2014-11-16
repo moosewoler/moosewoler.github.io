@@ -9,12 +9,13 @@ tags:
  - github
  - jekyll
  - markdown
-date: 2014-10-21 01:22:00
 ---
 
 ###0 引言
 
-GitHub Pages是为了满足github的用户建立项目主页的需求而提供的功能。它除了支持纯HTML之外，还支持Jekyll。由于Jekyll自己宣传是“blog-aware”，所以github也鼓励 自己的用户用github.io写博客。
+GitHub Pages是为了满足github的用户建立项目主页的需求而提供的功能。它除了支持纯HTML
+之外，还支持Jekyll。由于Jekyll自己宣传是“blog-aware”，所以github也鼓励自己的用户
+用github.io写博客（）。
 
 我最早看到的用Jekyll在github上建博的文章是这一篇：[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)。几年之后，有些用法发生了变化，包括github自己也给了适用[新手](https://pages.github.com/)和[老手](https://help.github.com/articles/using-jekyll-with-pages/)的jekyll攻略。这也就是为什么本文会出现在这里。
 

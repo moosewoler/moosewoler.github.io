@@ -2,7 +2,15 @@
 layout: default
 ---
 
-<div class="top-strip"></div>
+<div class="top-strip">
+        <div class="container">
+            <ul style="margin:auto; width:40em">
+                <li class="navi">
+                {{ page.categories | first }}
+                </li>
+            </ul>
+        </div>
+</div>
 <main class="content">
     <section class="container">
     	<div class="row-fluid">

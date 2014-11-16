@@ -3,6 +3,7 @@ layout: post
 title: Vundle——带有github特点的vim插件管理器
 date: 2014-02-01 02:41:00
 tags: vundle vim插件管理器
+categories: 玩意儿
 ---
 
 ###什么是[Vundle]

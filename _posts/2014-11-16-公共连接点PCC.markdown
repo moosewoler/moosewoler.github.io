@@ -1,0 +1,13 @@
+---
+layout: post
+title: "公共连接点PCC"
+author: "Moose W. Oler"
+abstract: "公共连接点怎么就coupling了"
+categories: 
+ - 玩意儿
+tags: 
+ - PCC
+ - 公共连接点
+---
+
+公共连接点，英文写作Point of Common Coupling。以前一直不理解怎么就coupling了。最近在写论文的时候猛然意识到，虽然进线是母线，但是电气上是看作一个点，所有负载的进线电压都是相互耦合的。

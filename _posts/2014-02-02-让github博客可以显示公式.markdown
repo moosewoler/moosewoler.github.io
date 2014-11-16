@@ -2,8 +2,8 @@
 layout: post
 title: 让github博客可以显示公式
 author: Moose W. Oler
-date: 2014-02-02 23:54:00
 tags: markdown latex mathjax github
+categories: 博客建设
 ---
 
 ###1.什么是MathJax
