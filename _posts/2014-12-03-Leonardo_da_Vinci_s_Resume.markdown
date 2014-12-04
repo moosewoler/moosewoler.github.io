@@ -1,5 +1,15 @@
 ---
-published: false
+layout: post
+title:  "Leonardo da Vinci's Resume"
+author: "Marc Cenedella"
+abstract: 达芬奇的求职简历
+categories: 
+ - 玩意儿
+tags:
+ - 达芬奇
+ - 简历
+ - Leonardo da Vinci
+ - resume
 ---
 
 ### 0 引言

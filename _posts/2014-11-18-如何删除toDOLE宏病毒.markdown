@@ -1,0 +1,69 @@
+---
+layout: post
+title: "如何删除toDOLE宏病毒"
+author: "tigerzyj2008"
+abstract: "如何手动删除某些excel文件中包含toDOLE宏病毒"
+categories: 
+ - 玩意儿
+tags: 
+ - toDOLE
+ - excel
+ - 宏病毒
+---
+
+###引言
+toDOLE在电脑中“栖息”了有一段时间了，今天偶然用到excel，它又跳了出来，真是是可忍，孰不可忍。立马寻了个[方子](http://h.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=6b9a96611e950a7b71354ec13aea13e4/6f061d950a7b02085c66f2b661d9f2d3572cc83e.jpg?referer=4cf10e4368600c33a96eeaf828d4&x=.jpg)将其拿下。
+
+方子甚好，寥寥数语，尽述其关窍。遂转全文于此，并增补图片，以备不时之需。
+
+###手动删除toDOLE步骤
+
+1. 如果感染该病毒，打开任意EXCEL文件，将会同时启动一个K4的excel文件
+2. 按ALT+F11打开VBA工程窗口 找到TODOLE模块并删除，另点击上面的EXCEL对象里的thisworkbook,会看到右边窗口有一段代码，全部删掉
+3. 此时不要关闭和打开其它excel文件，在C盘或你的系统安装盘下找如下路径：C:\Documents and Settings\Administrator\Application Data\Microsoft\Excel\XLSTART。在这里可以看到有一个K4文件，删除它(或者是WIN7系统的换成C:\Users\登录名\AppData\Roaming\Microsoft\Excel\XLSTART)
+4. 在excel任意工作薄右键点查看代码，粘入下面的代码并分别执行，成功后可以看到多出一个工作薄Macro,删掉它，并切换到公式里查看名称管理器，删除所用不明定义
+
+        Sub ShowAllMySheets()
+            MsgBox "使当前工作簿中的所有工作表都显示(即将隐藏的工作表也显示)"
+            Dim ws As Worksheet
+            For Each ws In Sheets
+                ws.Visible = True
+            Next ws
+        End Sub
+
+        Sub excel自定义名称显示和隐藏()
+            On Error GoTo ERR1
+            Dim nm As Name　
+            Dim bVisible As Boolean
+            With ThisWorkbook
+                If .Names.Count > 0 Then
+                    bVisible = True
+                For Each nm In .Names
+                    nm.Visible = bVisible
+                Next nm
+                If bVisible Then
+                    MsgBox ("所有名称可见！")
+                Else
+                    MsgBox ("所有名称隐藏！")
+                End If
+                Else
+                    MsgBox ("本工作簿没有定义名称！")
+                End If
+            End With
+            Exit Sub
+        ERR1:
+            MsgBox (Err.Description)
+        End Sub
+
+5. 至此，病毒去除完成
+
+### 配图 
+
+![删除toDOLE-step1](http://h.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=6b9a96611e950a7b71354ec13aea13e4/6f061d950a7b02085c66f2b661d9f2d3572cc83e.jpg?referer=4cf10e4368600c33a96eeaf828d4&x=.jpg)
+
+![删除toDOLE-step2](http://h.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=d3fbd6baa0cc7cd9fe2d34dc093a5002/2fdda3cc7cd98d107ebdc166223fb80e7bec9078.jpg?referer=f2e533744a540923f37e564ed016&x=.jpg)
+
+![删除toDOLE-step3](http://d.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=33e32967b9a1cd1101b672258929b9c1/d000baa1cd11728b8c2f4175cbfcc3cec3fd2c63.jpg?referer=03aa2924ae4bd1135dda82028c21&x=.jpg)
+
+![删除toDOLE-step4](http://g.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a76b406978ec54e745ec1a1b8903ea6d/b90e7bec54e736d1a97a415f98504fc2d5626978.jpg?referer=575d4bb99f82d158e2956c81d716&x=.jpg "删除toDOLE-step4")
+
