@@ -19,10 +19,26 @@ toDOLE在电脑中“栖息”了有一段时间了，今天偶然用到excel，
 
 ###手动删除toDOLE步骤
 
-1. 如果感染该病毒，打开任意EXCEL文件，将会同时启动一个K4的excel文件
-2. 按ALT+F11打开VBA工程窗口 找到TODOLE模块并删除，另点击上面的EXCEL对象里的thisworkbook,会看到右边窗口有一段代码，全部删掉
-3. 此时不要关闭和打开其它excel文件，在C盘或你的系统安装盘下找如下路径：C:\Documents and Settings\Administrator\Application Data\Microsoft\Excel\XLSTART。在这里可以看到有一个K4文件，删除它(或者是WIN7系统的换成C:\Users\登录名\AppData\Roaming\Microsoft\Excel\XLSTART)
-4. 在excel任意工作薄右键点查看代码，粘入下面的代码并分别执行，成功后可以看到多出一个工作薄Macro,删掉它，并切换到公式里查看名称管理器，删除所用不明定义
+1） 如果感染该病毒，打开任意EXCEL文件，将会同时启动一个叫做K4的excel文件
+2） 按ALT+F11打开VBA工程窗口 找到TODOLE模块并删除，
+
+![删除toDOLE-step1](http://h.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=794d75d6c81349547a1eec65667ea929/6f061d950a7b02085c66f2b661d9f2d3572cc83e.jpg)
+图1 打开VBA编辑器
+
+![删除toDOLE-step2](http://h.picphotos.baidu.com/album/w%3D2048%3Bq%3D90/sign=3cfd7a41ccfc1e17fdbf8b317ea8cd72/2fdda3cc7cd98d107ebdc166223fb80e7bec9078.jpg)
+图2 删除ToDOLE模块
+
+点击上面的EXCEL对象里的thisworkbook,会看到右边窗口有一段代码，全部删掉
+
+![删除toDOLE-step3](http://d.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=1cf583ac0946f21fcd345a52c6145011/d000baa1cd11728b8c2f4175cbfcc3cec3fd2c63.jpg)
+图3 删除thisworkbook中的代码
+
+3） 此时不要关闭和打开其它excel文件，在C盘或你的系统安装盘下找如下路径：C:\Documents and Settings\Administrator\Application Data\Microsoft\Excel\XLSTART。在这里可以看到有一个K4文件，删除它(或者是WIN7系统的换成C:\Users\登录名\AppData\Roaming\Microsoft\Excel\XLSTART)
+
+![删除toDOLE-step4](http://g.picphotos.baidu.com/album/w%3D2048%3Bq%3D90/sign=70578beaaa773912c4268261cc21bd69/b90e7bec54e736d1a97a415f98504fc2d5626978.jpg)
+图4 删除K4.xls
+
+4） 在excel任意工作薄右键点查看代码，粘入下面的代码并执行
 
         Sub ShowAllMySheets()
             MsgBox "使当前工作簿中的所有工作表都显示(即将隐藏的工作表也显示)"
@@ -55,15 +71,31 @@ toDOLE在电脑中“栖息”了有一段时间了，今天偶然用到excel，
         ERR1:
             MsgBox (Err.Description)
         End Sub
+        
+        
+![删除toDOLE-step5](http://a.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=838ca7a961d9f2d3241120ee99dcb162/d009b3de9c82d15834c7c1f9830a19d8bc3e4235.jpg)
+图5 在sheet1中添加代码
 
-5. 至此，病毒去除完成
+5） 成功后可以看到多出一个工作薄Macro,删掉它
+
+![删除toDOLE-step6](http://d.picphotos.baidu.com/album/s%3D740%3Bq%3D90/sign=cef1ceb4d639b60049ce0db3d96b4417/d31b0ef41bd5ad6e06fba9bd82cb39dbb6fd3c63.jpg)
+图6 删除被隐藏的Macro表
+
+6） 切换到公式里查看名称管理器，删除所用不明定义
+
+![删除toDOLE-step7](http://g.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=d530fb287bf0f736dcfe48003a658868/adaf2edda3cc7cd9f344f98e3a01213fb80e9178.jpg)
+图7 打开名称管理器
+
+![删除toDOLE-step8](http://h.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=79578beaaa773912c0268160c829bd69/8435e5dde71190eff9925f88cd1b9d16fdfa6078.jpg)
+图8 删除不明定义
+
+7） 至此，病毒去除完成
 
 ### 配图 
 
-![删除toDOLE-step1](http://h.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=794d75d6c81349547a1eec65667ea929/6f061d950a7b02085c66f2b661d9f2d3572cc83e.jpg)
 
-![删除toDOLE-step2](http://h.picphotos.baidu.com/album/w%3D2048%3Bq%3D90/sign=3cfd7a41ccfc1e17fdbf8b317ea8cd72/2fdda3cc7cd98d107ebdc166223fb80e7bec9078.jpg)
 
-![删除toDOLE-step3](http://d.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=1cf583ac0946f21fcd345a52c6145011/d000baa1cd11728b8c2f4175cbfcc3cec3fd2c63.jpg)
 
-![删除toDOLE-step4](http://g.picphotos.baidu.com/album/w%3D2048%3Bq%3D90/sign=70578beaaa773912c4268261cc21bd69/b90e7bec54e736d1a97a415f98504fc2d5626978.jpg)
+
+
+
