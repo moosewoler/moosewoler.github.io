@@ -5,10 +5,23 @@ layout: post
 
 ### BP是什么
 
+以下内容来自文献[1]：
+
+BP（正式英文全称：BP p.l.c.。前称：British Petroleum（英国石油），简称：BP，后BP简称成为正式名称），是世界最大私营石油公司之一（即国际石油七姊妹之一），也是世界前十大私营企业集团之一，2012年营业额达到3882.85亿美元。该公司前身是创立于1908年的盎格鲁·波斯石油公司（Anglo-Persian Oil Company），1954年改称“British Petroleum”（英国石油公司），同时“BP”缩写依然常用。该公司整合探油、探气、炼油、储油、售油、零售等营业领域。在1998年一次购并行动后，“BP”不再作为“British Petroleum”的缩写，而成为公司正式名称。在广告上，该公司有时使用“超越石油”“Beyond Petroleum”来宣传业务。
+
+以下内容来自文献[2]：
+
+[BP](http://www.bp.com) is one of the world's leading international oil and gas companies. We provide customers with fuel for transportation, energy for heat and light, lubricants to keep engines moving, and the petrochemicals products used to make everyday items as diverse as paints, clothes and packaging
+
+
 ### 报表哪里找
+
+Key reports
+Our key reports include information about our financial and operating performance, sustainability performance and also global energy trends and projections.
 
 ### 报表内容物
 
 ### 名词解释
 
 ### 参考文献
+1. BP，http://zh.wikipedia.org/wiki/BP
