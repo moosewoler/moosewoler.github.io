@@ -32,10 +32,9 @@ main.container, main.content > .container{
 
 
 @font-face {
-  font-family: 'Noto Serif';
+  font-family:Toxica42524;
   font-style: normal;
   font-weight: 400;
-  src: local('Noto Serif'), local('NotoSerif'), url(http://themes.googleusercontent.com/static/fonts/notoserif/v1/eCpfeMZI7q4jLksXVRWPQxsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
 }
 
 
@@ -92,7 +91,7 @@ main.container, main.content > .container{
 .entries{
      @extend .center-txt;
     list-style: none;
-    font-family: 'Noto Serif';
+    font-family: 'Toxica42524';
     margin:2em 0 0;
 
     li{
@@ -163,7 +162,7 @@ main.container, main.content > .container{
     h5{
          @extend .center-txt;
         margin:5em 0 -6em 0;
-        font-family: 'Noto Serif';
+        font-family: 'Toxica42524';
         text-transform: uppercase;
         font-weight: normal;
         letter-spacing: 0.6em;
@@ -178,7 +177,7 @@ main.container, main.content > .container{
     }
 
     section{
-        font-family: 'Noto Serif';
+        font-family: 'Toxica42524';
         line-height: 1.9em;
     }
 }
@@ -188,7 +187,7 @@ main.container, main.content > .container{
 
 footer .container{
     @extend .center-txt;
-    font-family: 'Noto Serif';
+    font-family: 'Toxica42524';
     color: $white;
     padding: 2em 0;
     font-size: 0.8em;

@@ -1838,10 +1838,9 @@ main.container, main.content > .container {
   width: 50em; }
 
 @font-face {
-  font-family: 'Noto Serif';
+  font-family: Toxica42524;
   font-style: normal;
-  font-weight: 400;
-  src: local("Noto Serif"), local("NotoSerif"), url(http://themes.googleusercontent.com/static/fonts/notoserif/v1/eCpfeMZI7q4jLksXVRWPQxsxEYwM7FgeyaSgU71cLG0.woff) format("woff"); }
+  font-weight: 400; }
 .center-txt, .content h1, .entries, .pages, .home-icon, .post h5, .post h2, footer .container {
   text-align: center; }
 
@@ -1876,7 +1875,7 @@ main.container, main.content > .container {
 
 .entries {
   list-style: none;
-  font-family: 'Noto Serif';
+  font-family: 'Toxica42524';
   margin: 2em 0 0; }
   .entries li {
     margin-bottom: 3em;
@@ -1913,7 +1912,7 @@ main.container, main.content > .container {
 
 .post h5 {
   margin: 5em 0 -6em 0;
-  font-family: 'Noto Serif';
+  font-family: 'Toxica42524';
   text-transform: uppercase;
   font-weight: normal;
   letter-spacing: 0.6em; }
@@ -1923,11 +1922,11 @@ main.container, main.content > .container {
   padding: 1.5em 0 0.5em;
   letter-spacing: 0.05em; }
 .post section {
-  font-family: 'Noto Serif';
+  font-family: 'Toxica42524';
   line-height: 1.9em; }
 
 footer .container {
-  font-family: 'Noto Serif';
+  font-family: 'Toxica42524';
   color: #fff;
   padding: 2em 0;
   font-size: 0.8em; }

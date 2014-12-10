@@ -1,6 +1,13 @@
 ---
-published: false
 layout: post
+title: 怎么阅读BP年度报表
+author: Moose W. Oler
+abstract: 如何从BP年度能源报表中获得自己需要的信息
+categories: 
+  - 自己个的学报
+tags: 
+  - BP
+  - BP statistical review of world energy
 ---
 
 ### BP是什么
@@ -16,7 +23,8 @@ BP（正式英文全称：BP p.l.c.。前称：British Petroleum（英国石油�
 
 ### 报表哪里找
 
-Key reports
+[Key reports](http://www.bp.com/en/global/corporate/about-bp/energy-economics/statistical-review-of-world-energy.html)
+
 Our key reports include information about our financial and operating performance, sustainability performance and also global energy trends and projections.
 
 ### 报表内容物
@@ -24,4 +32,9 @@ Our key reports include information about our financial and operating performanc
 ### 名词解释
 
 ### 参考文献
+
 1. BP，http://zh.wikipedia.org/wiki/BP
+
+2. BP at a glance, http://www.bp.com/en/global/corporate/about-bp/bp-at-a-glance.html
+
+
