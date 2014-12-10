@@ -49,9 +49,9 @@ $serifFontFamily:       "OldNewspaperTypes", Georgia, "Times New Roman", Times, 
 $monoFontFamily:        "ModernTypewriter", Monaco, Menlo, Consolas, "Courier New", monospace !default;
 
 $baseFontSize:          14px !default;
-$baseFontFamily:        $sansFontFamily !default;
+$baseFontFamily:        $serifFontFamily !default;
 $baseLineHeight:        20px !default;
-$altFontFamily:         $serifFontFamily !default;
+$altFontFamily:         $sansFontFamily !default;
 
 $headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
 $headingsFontWeight:    bold !default;    // instead of browser default, bold
