@@ -37,6 +37,28 @@ main.container, main.content > .container{
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "OldNewspaperTypes";
+  font-style: normal;
+  font-weight: 400;
+  src: url('../font/OldNewspaperTypes.eot');
+  src: url('../font/OldNewspaperTypes.eot?#iefix') format('embedded-opentype'),
+	   url('../font/OldNewspaperTypes.woff') format('woff'),
+	   url('../font/OldNewspaperTypes.ttf') format('truetype'),
+	   url('../font/OldNewspaperTypes.svg#OldNewspaperTypes') format('svg');
+}
+
+@font-face {
+  font-family: "ModernTypewriter";
+  font-style: normal;
+  font-weight: 400;
+  src: url('../font/ModernTypewriter.eot');
+  src: url('../font/ModernTypewriter.eot?#iefix') format('embedded-opentype'),
+	   url('../font/ModernTypewriter.woff') format('woff'),
+	   url('../font/ModernTypewriter.ttf') format('truetype'),
+	   url('../font/ModernTypewriter.svg#ModernTypewriter') format('svg');
+}
+
 
 // 1. b Extends
 // --------------------------------------------------
@@ -91,7 +113,7 @@ main.container, main.content > .container{
 .entries{
      @extend .center-txt;
     list-style: none;
-    font-family: 'Toxica42524';
+    font-family: 'OldNewspaperTypes';
     margin:2em 0 0;
 
     li{
@@ -162,7 +184,7 @@ main.container, main.content > .container{
     h5{
          @extend .center-txt;
         margin:5em 0 -6em 0;
-        font-family: 'Toxica42524';
+        font-family: 'OldNewspaperTypes';
         text-transform: uppercase;
         font-weight: normal;
         letter-spacing: 0.6em;
@@ -177,7 +199,7 @@ main.container, main.content > .container{
     }
 
     section{
-        font-family: 'Toxica42524';
+        font-family: 'OldNewspaperTypes';
         line-height: 1.9em;
     }
 }
@@ -187,7 +209,7 @@ main.container, main.content > .container{
 
 footer .container{
     @extend .center-txt;
-    font-family: 'Toxica42524';
+    font-family: 'OldNewspaperTypes';
     color: $white;
     padding: 2em 0;
     font-size: 0.8em;
