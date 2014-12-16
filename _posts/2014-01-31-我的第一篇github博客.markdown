@@ -21,6 +21,14 @@ categories: 博客建设
 
 [如何设置访问统计]()
 
+### 字体
+
+[康熙字典体](http://typeland.com/typeface/TpldKhangXiDict/)
+
+[OldNewspaperTypes]()
+
+[ModernTypewriter]()
+
 ###TODO list
 
 2014-11-16
