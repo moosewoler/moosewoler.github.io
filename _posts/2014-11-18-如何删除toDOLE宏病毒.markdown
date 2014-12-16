@@ -13,7 +13,7 @@ published: true
 ---
 
 ###引言
-toDOLE在电脑中“栖息”了有一段时间了，今天偶然用到excel，它又跳了出来，真是是可忍，孰不可忍。立马寻了个[方子](http://h.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=6b9a96611e950a7b71354ec13aea13e4/6f061d950a7b02085c66f2b661d9f2d3572cc83e.jpg?referer=4cf10e4368600c33a96eeaf828d4&x=.jpg)将其拿下。
+toDOLE在电脑中“栖息”了有一段时间了，今天偶然用到excel，它又跳了出来，真是是可忍，孰不可忍。立马寻了个[方子](http://tigerzyj2008.blog.163.com/blog/static/162920523201210524210803/)将其拿下。
 
 方子甚好，寥寥数语，尽述其关窍。遂转全文于此，并增补图片，以备不时之需。
 
@@ -22,23 +22,23 @@ toDOLE在电脑中“栖息”了有一段时间了，今天偶然用到excel，
 1） 如果感染该病毒，打开任意EXCEL文件，将会同时启动一个叫做K4的excel文件
 2） 按ALT+F11打开VBA工程窗口 找到TODOLE模块并删除，
 
-![删除toDOLE-step1](http://h.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=794d75d6c81349547a1eec65667ea929/6f061d950a7b02085c66f2b661d9f2d3572cc83e.jpg)
+![删除toDOLE-step1](http://h.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=6b9a96611e950a7b71354ec13aea13e4/6f061d950a7b02085c66f2b661d9f2d3572cc83e.jpg?referer=4cf10e4368600c33a96eeaf828d4&x=.jpg)
 
 图1 打开VBA编辑器
 
-![删除toDOLE-step2](http://h.picphotos.baidu.com/album/w%3D2048%3Bq%3D90/sign=3cfd7a41ccfc1e17fdbf8b317ea8cd72/2fdda3cc7cd98d107ebdc166223fb80e7bec9078.jpg)
+![删除toDOLE-step2](http://h.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=d3fbd6baa0cc7cd9fe2d34dc093a5002/2fdda3cc7cd98d107ebdc166223fb80e7bec9078.jpg?referer=f2e533744a540923f37e564ed016&x=.jpg)
 
 图2 删除ToDOLE模块
 
 点击上面的EXCEL对象里的thisworkbook,会看到右边窗口有一段代码，全部删掉
 
-![删除toDOLE-step3](http://d.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=1cf583ac0946f21fcd345a52c6145011/d000baa1cd11728b8c2f4175cbfcc3cec3fd2c63.jpg)
+![删除toDOLE-step3](http://d.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=33e32967b9a1cd1101b672258929b9c1/d000baa1cd11728b8c2f4175cbfcc3cec3fd2c63.jpg?referer=03aa2924ae4bd1135dda82028c21&x=.jpg)
 
 图3 删除thisworkbook中的代码
 
 3） 此时不要关闭和打开其它excel文件，在C盘或你的系统安装盘下找如下路径：C:\Documents and Settings\Administrator\Application Data\Microsoft\Excel\XLSTART。在这里可以看到有一个K4文件，删除它(或者是WIN7系统的换成C:\Users\登录名\AppData\Roaming\Microsoft\Excel\XLSTART)
 
-![删除toDOLE-step4](http://g.picphotos.baidu.com/album/w%3D2048%3Bq%3D90/sign=70578beaaa773912c4268261cc21bd69/b90e7bec54e736d1a97a415f98504fc2d5626978.jpg)
+![删除toDOLE-step4](http://g.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a76b406978ec54e745ec1a1b8903ea6d/b90e7bec54e736d1a97a415f98504fc2d5626978.jpg?referer=575d4bb99f82d158e2956c81d716&x=.jpg)
 
 图4 删除K4.xls
 
@@ -77,23 +77,23 @@ toDOLE在电脑中“栖息”了有一段时间了，今天偶然用到excel，
         End Sub
         
         
-![删除toDOLE-step5](http://a.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=838ca7a961d9f2d3241120ee99dcb162/d009b3de9c82d15834c7c1f9830a19d8bc3e4235.jpg)
+![删除toDOLE-step5](http://a.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=6a207c71b0de9c82a265f98a5cbaf137/d009b3de9c82d15834c7c1f9830a19d8bc3e4235.jpg?referer=047b3f3dd588d43fa9bea5c2aeeb&x=.jpg)
 
 图5 在sheet1中添加代码
 
 5） 成功后可以看到多出一个工作薄Macro,删掉它
 
-![删除toDOLE-step6](http://d.picphotos.baidu.com/album/s%3D740%3Bq%3D90/sign=cef1ceb4d639b60049ce0db3d96b4417/d31b0ef41bd5ad6e06fba9bd82cb39dbb6fd3c63.jpg)
+![删除toDOLE-step6](http://d.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=a6212a7c0df41bd5de53e8f161e1f0f6/d31b0ef41bd5ad6e06fba9bd82cb39dbb6fd3c63.jpg?referer=d16a4b7ee8c4b7456d8382267c22&x=.jpg)
 
 图6 删除被隐藏的Macro表
 
 6） 切换到公式里查看名称管理器，删除所用不明定义
 
-![删除toDOLE-step7](http://g.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=d530fb287bf0f736dcfe48003a658868/adaf2edda3cc7cd9f344f98e3a01213fb80e9178.jpg)
+![删除toDOLE-step7](http://g.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=356254c82ddda3cc0fe4b82531d2483c/adaf2edda3cc7cd9f344f98e3a01213fb80e9178.jpg?referer=208b75d6c81349542709dd54df16&x=.jpg)
 
 图7 打开名称管理器
 
-![删除toDOLE-step8](http://h.picphotos.baidu.com/album/s%3D1100%3Bq%3D90/sign=79578beaaa773912c0268160c829bd69/8435e5dde71190eff9925f88cd1b9d16fdfa6078.jpg)
+![删除toDOLE-step8](http://h.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=5a367d52e6dde711e3d243f397d4bf26/8435e5dde71190eff9925f88cd1b9d16fdfa6078.jpg?referer=3e61cb9d818ba61e86f9fd1fc016&x=.jpg)
 
 图8 删除不明定义
 
