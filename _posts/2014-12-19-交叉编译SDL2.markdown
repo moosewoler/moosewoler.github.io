@@ -11,7 +11,18 @@ tags:
 
 ### 0 引言
 
+SDL2能否直接构建在linux上？官方没有明确提及。
+
 ### 1 获取源码
+
+在[SDL项目的下载页](http://www.libsdl.org/download-2.0.php)可以找到源码下载，
+
+The latest development version of SDL is available via Mercurial(http://www.libsdl.org/hg.php).
+
+Mercurial allows you to get up-to-the-minute fixes and enhancements; as a developer works on a source tree, you can mirror it instead of waiting for an official release.
+
+  wget http://www.libsdl.org/release/SDL2-2.0.3.tar.gz
+
 
 ### 2 配置工具链
 
