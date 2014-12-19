@@ -1,0 +1,24 @@
+---
+layout: post
+author: Moose W. Oler
+abstract: 如何在imx805平台上编译SDL2。
+categories: 玩意儿
+tags:
+  - boox
+  - SDL2
+  - imx508
+---
+
+### 0 引言
+
+### 1 获取源码
+
+### 2 配置工具链
+
+### 3 编译
+
+### 4 安装
+
+### 5 测试及结果
+
+### 参考文献
