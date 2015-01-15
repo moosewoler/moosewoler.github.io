@@ -1,12 +1,12 @@
 ---
-  published: true
+  published: false
   layout: post
   author: Moose W. Oler
   abstract: 本文介绍了ssh反向隧道的作用以及如何建立这样一条隧道。
   categories: 玩意儿
   tags:
-    -- ssh反向隧道
-    -- ssh reverse tunnel
+    - ssh反向隧道
+    - ssh reverse tunnel
 ---
 
 ### 0 引言
