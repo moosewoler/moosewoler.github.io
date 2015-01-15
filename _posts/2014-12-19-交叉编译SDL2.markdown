@@ -1,4 +1,5 @@
 ---
+published: false
 layout: post
 author: Moose W. Oler
 abstract: 如何在imx805平台上编译SDL2。
