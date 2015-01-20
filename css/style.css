@@ -105,7 +105,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: "OldNewspaperTypes", Georgia, "Times New Roman", Times, "TpldKhangXiDictTrial", serif;
+  font-family: "OldNewspaperTypes", Georgia, "Times New Roman", Times, serif;
   font-size: 14px;
   line-height: 20px;
   color: #333;
@@ -441,7 +441,7 @@ address {
 code,
 pre {
   padding: 0 3px 2px;
-  font-family: "ModernTypewriter", Monaco, Menlo, Consolas, "Courier New", "TpldKhangXiDictTrial", monospace;
+  font-family: "ModernTypewriter", Monaco, Menlo, Consolas, "Courier New", monospace;
   font-size: 12px;
   color: #333;
   -webkit-border-radius: 3px;
@@ -1879,7 +1879,7 @@ main.container, main.content > .container {
     min-height: 58em; }
 
 .content h1 {
-  font-family: Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 6em;
   margin-top: 1em;
   border-bottom: 1px solid #222;
@@ -1892,7 +1892,7 @@ main.container, main.content > .container {
 
 .entries {
   list-style: none;
-  font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+  font-family: 'OldNewspaperTypes';
   margin: 2em 0 0; }
   .entries li {
     margin-bottom: 3em;
@@ -1902,7 +1902,7 @@ main.container, main.content > .container {
     font-size: 0.9em;
     letter-spacing: 0.1em; }
   .entries h3 {
-    font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+    font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, serif;
     font-size: 2em;
     margin-top: 0.2em; }
   .entries div {
@@ -1920,7 +1920,7 @@ main.container, main.content > .container {
   float: left; }
 
 #post-pagination {
-  font-family: Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+  font-family: Georgia, "Times New Roman", Times,  serif;
   margin-bottom: 3em; }
 
 .home-icon {
@@ -1929,21 +1929,21 @@ main.container, main.content > .container {
 
 .post h5 {
   margin: 5em 0 -6em 0;
-  font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+  font-family: 'OldNewspaperTypes';
   text-transform: uppercase;
   font-weight: normal;
   letter-spacing: 0.6em; }
 .post h2 {
-  font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+  font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, serif;
   font-size: 5em;
   padding: 1.5em 0 0.5em;
   letter-spacing: 0.05em; }
 .post section {
-  font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+  font-family: 'OldNewspaperTypes';
   line-height: 1.9em; }
 
 footer .container {
-  font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+  font-family: 'OldNewspaperTypes';
   color: #fff;
   padding: 2em 0;
   font-size: 0.8em; }

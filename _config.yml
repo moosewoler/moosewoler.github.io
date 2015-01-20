@@ -1,10 +1,10 @@
 # visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
 name: Moose W. Oler的github博客
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 encoding: UTF-8
 #google_analytics_id: UA-9182945-2
-auto: true # automatically update your jekyll
-server: true # runs a local server
+#auto: true # automatically update your jekyll
+#server: true # runs a local server
 paginate: 10 # pagination basted on number of posts
 exclude: ["Gemfile", "Gemfile.lock", "README.md", 'sass', 'watch.sh', 'style.scss'] # files to exclude

@@ -98,7 +98,7 @@ main.container, main.content > .container{
 }
 
 .content h1{
-    font-family: Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
      @extend .center-txt;
     font-size: 6em;  
     margin-top: 1em;
@@ -119,7 +119,7 @@ main.container, main.content > .container{
 .entries{
      @extend .center-txt;
     list-style: none;
-    font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+    font-family: 'OldNewspaperTypes';
     margin:2em 0 0;
 
     li{
@@ -135,7 +135,7 @@ main.container, main.content > .container{
     }
 
     h3{
-        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, serif;
         font-size: 2em;
         margin-top: 0.2em;
         @extend .a-hover;
@@ -170,7 +170,7 @@ main.container, main.content > .container{
 }
 
 #post-pagination{
-    font-family: Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+    font-family: Georgia, "Times New Roman", Times,  serif;
     margin-bottom: 3em;
 }
 
@@ -190,14 +190,14 @@ main.container, main.content > .container{
     h5{
          @extend .center-txt;
         margin:5em 0 -6em 0;
-        font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+        font-family: 'OldNewspaperTypes';
         text-transform: uppercase;
         font-weight: normal;
         letter-spacing: 0.6em;
     }
 
     h2{
-        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, 'TpldKhangXiDictTrial', serif;
+        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, serif;
         @extend .center-txt;
         font-size: 5em;
         padding: 1.5em 0 0.5em;
@@ -205,7 +205,7 @@ main.container, main.content > .container{
     }
 
     section{
-        font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+        font-family: 'OldNewspaperTypes';
         line-height: 1.9em;
     }
 }
@@ -215,7 +215,7 @@ main.container, main.content > .container{
 
 footer .container{
     @extend .center-txt;
-    font-family: 'OldNewspaperTypes', 'TpldKhangXiDictTrial';
+    font-family: 'OldNewspaperTypes';
     color: $white;
     padding: 2em 0;
     font-size: 0.8em;
