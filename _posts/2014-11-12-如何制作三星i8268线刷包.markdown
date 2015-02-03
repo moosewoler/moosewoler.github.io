@@ -12,6 +12,10 @@ tags:
 date: 2014-11-12 15:00:00
 ---
 
+[I8268 root 卡刷包 亲测100%成功](http://bbs.dkdiy.net/thread-37692-1-1.html)，这篇帖子包含img的制作方法
+
+[三星i8268线刷root教程](http://www.shuajibao.cc/shuaji/jiaocheng-337.html)
+
 [教你如何制作tar.md5](http://bbs.gfan.com/android-5589502-1-1.html)
 
 [修改system.img的大小限制](http://www.xue5.com/Mobile/Mobile/689206.html)
