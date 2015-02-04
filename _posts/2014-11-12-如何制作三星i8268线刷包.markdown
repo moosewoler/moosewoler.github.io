@@ -12,6 +12,79 @@ tags:
 date: 2014-11-12 15:00:00
 ---
 
+### 0 准备环节
+
+* [三星i8268原版线刷包](http://pan.baidu.com/s/1eQtiNIi)，适用于基带版本ZMANC1的机型。
+* 线刷工具，[Odin3](http://pan.baidu.com/s/1jGsuHlO)
+* [三星设备驱动](http://pan.baidu.com/s/1mgMcPEo)
+* [adb_fastbooot工具包](http://pan.baidu.com/s/1nt61Hod)
+
+### 1 制作精简线刷包
+
+将三星原版线刷包解压
+
+    moose@debian:~/samsung/twice$ 7z x 三星原版_CHM-I8268ZMANC1-20140514133101.rar 
+    moose@debian:~/samsung/twice$ cd CHM-I8268ZMANC1-20140514133101/
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ mv KIES_HOME_I8268ZMANC1_I8268CHMANC1_1526121_REV00_user_low_ship.tar.md5 KIES_HOME_I8268ZMANC1_I8268CHMANC1_1526121_REV00_user_low_ship.tar
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ tar -xvf KIES_HOME_I8268ZMANC1_I8268CHMANC1_1526121_REV00_user_low_ship.tar 
+
+解压出以下6个img：
+
+* boot.img
+* recovery.img
+* system.img
+* NVM.img
+* radio.img
+* cache.img
+
+然后解开system.img。
+
+system.img中是个ext4分区镜像，不过得先用Android的工具simg2img（sparse image to image）进行解包，然后再用mount将镜像挂载。simg2img工具在AOSP的system/extras/ext4_utils中有，在github上也可以搜得到。
+
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ simg2img system.img system.ext4.img
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ mkdir system
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ sudo mount -t ext4 -o loop system.ext4.img system
+
+关于img文件的解包和打包方法，详见
+[Android: How to Unpack/Pack Factory Images](http://rex-shen.net/android-unpackpack-factory-images/)
+和
+[How to pack and unpack system.img and userdata.img from an Android factory image](http://muzso.hu/2012/08/10/how-to-pack-and-unpack-system.img-and-userdata.img-from-an-android-factory-image)
+
+然后删除一些内置的apk。关于哪个能删哪个不能删，可以去搜“精简 列表”，每个人采取的策略不尽相同，多看几个，对照着删吧。
+
+/preload文件夹下的
+
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101/system$ sudo rm -fv preload/*
+
+/app文件夹下的，因为内容太多，写了个clearify.sh脚本。
+
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101/system/app$ sudo ~/samsung/clearify.sh 
+
+剩下的/tts还有/lib文件夹下能不能删就见仁见智了。
+
+这样弄完之后，原本1.2G的映像，就剩了447M。
+
+然后重新打包，这里需要root权限
+
+    root@debian:/home/moose/samsung/twice/CHM-I8268ZMANC1-20140514133101# mkuserimg.sh -s system/ system.new.img ext4 /system 500M
+
+打完之后ls一下，比原来的小多了：
+
+    root@debian:/home/moose/samsung/twice/CHM-I8268ZMANC1-20140514133101# ls -lh
+    total 2.9G
+    -rw-r--r--  1 moose moose 795M  3月 10  2014 system.img
+    -rw-r--r--  1 moose moose 437M  2月  5 01:12 system.new.img
+
+重新打包成.tar.md5文件：
+
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ tar -cf MWO_I8268ZMANC1_20150205.tar boot.img cache.img NVM.img radio.img recovery.img system.new.img
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ md5sum -t MWO_I8268ZMANC1_20150205.tar >> MWO_I8268ZMANC1_20150205.tar 
+    moose@debian:~/samsung/twice/CHM-I8268ZMANC1-20140514133101$ mv MWO_I8268ZMANC1_20150205.tar MWO_I8268ZMANC1_20150205.tar.md5
+
+至此，线刷包制作完毕，下一步就是刷入手机了。
+
+### 2 刷机
+
 [I8268 root 卡刷包 亲测100%成功](http://bbs.dkdiy.net/thread-37692-1-1.html)，这篇帖子包含img的制作方法
 
 [三星i8268线刷root教程](http://www.shuajibao.cc/shuaji/jiaocheng-337.html)
@@ -20,4 +93,4 @@ date: 2014-11-12 15:00:00
 
 [修改system.img的大小限制](http://www.xue5.com/Mobile/Mobile/689206.html)
 
-[How to pack and unpack system.img and userdata.img from an Android factory image](http://muzso.hu/2012/08/10/how-to-pack-and-unpack-system.img-and-userdata.img-from-an-android-factory-image)
+
