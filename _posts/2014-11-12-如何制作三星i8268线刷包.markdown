@@ -85,6 +85,12 @@ system.img中是个ext4分区镜像，不过得先用Android的工具simg2img（
 
 ### 2 刷机
 
+线刷过程可参考[百度经验-三星线刷大法](http://jingyan.baidu.com/article/5225f26b25f07de6fb090860.html)。
+
+因为ODIN的版本可能不同，所以界面有少许差别。
+
+### 其他参考资料
+
 [I8268 root 卡刷包 亲测100%成功](http://bbs.dkdiy.net/thread-37692-1-1.html)，这篇帖子包含img的制作方法
 
 [三星i8268线刷root教程](http://www.shuajibao.cc/shuaji/jiaocheng-337.html)
