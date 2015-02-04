@@ -66,7 +66,9 @@ system.img中是个ext4分区镜像，不过得先用Android的工具simg2img（
 
 然后重新打包，这里需要root权限
 
-    root@debian:/home/moose/samsung/twice/CHM-I8268ZMANC1-20140514133101# mkuserimg.sh -s system/ system.new.img ext4 /system 500M
+    root@debian:/home/moose/samsung/twice/CHM-I8268ZMANC1-20140514133101# mkuserimg.sh -s system/ system.img ext4 /system 500M
+
+注意：这里除了挂载点“system/”可以根据实际情况变化外，后面的参数，即“system.img ext4 /system”都不要改变。另外，i8268内置存储器是1.2G的，所以映像的大小也不能超过1.2G。
 
 打完之后ls一下，比原来的小多了：
 
