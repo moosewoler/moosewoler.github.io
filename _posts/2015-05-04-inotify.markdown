@@ -1,0 +1,300 @@
+---
+  layout: post
+  author: Moose W. Oler
+  abstract: AWESOME的小部件是用轮询实现的，查查看有没有更高效的机制。
+  categories: 玩意儿
+  tags:
+    - awesome
+    - vicious widget
+    - inotify
+---
+
+### 0 引言
+
+AWESOME的小部件，比如CPU小部件是用轮询的方式，每隔一段时间查询一次/proc/stat文件。
+大多数场合，这种方法还不错，但总会有不适用的时候。比如BATTERY小部件，默认是1分钟
+对电池的状态查询一次。这意味着，我插拔电源的动作可能要等一分钟才能在小部件上体现
+出来。那你可能会想，把查询间隔设置的短一些不就好了，但这终归不是釜底抽薪之策，不
+能在本质上解决问题。
+
+其实，Linux在内核中已经提供了一种完美解决这个问题的机制，即本文下面介绍的inotify。
+
+(加入LUA+inotify的例子，以及vicious的例子)
+
+### 1 什么是inotify
+
+[Inotify: Efficient, Real-Time Linux File System Event Monitoring](http://www.infoq.com/articles/inotify-linux-file-system-event-monitoring)
+
+#### Summary - or why should I monitor the filesystem at all?
+
+The need to scan a given filesystem for changes is a fairly common one, and there are a variety of common tasks which require this, including:
+
+* Notifying applications of changes in configuration files
+* Tracking changes in critical system files
+* Monitoring overall disk usage on a partition
+* Automatic cleanup after a crash
+* Automatic triggering of backup processes
+* Sending notifications when the upload of a file to a server completes
+
+A common approach to doing this sort of change notification is file polling, however this tends to be inefficient for all but the most frequently-changed files (since you have a guaranteed I/O every X seconds) and can miss certain types of changes (e.g. if the modification timestamp on a file isn't changed). Data integrity systems like Tripwire track file changes based on a fixed time schedule, but the time-scheduled approach doesn't work if you want to be notified every time it changes in real-time - just as an event takes place. A framework which fulfills that requirement is Inotify. In this article we will walk through how to use Inotify to monitor directories and trigger alerts on changes and present tools you might want to add to your personal toolbox.
+What's Inotify?
+
+Inotify is a file change notification system in the Linux kernel, available since version 2.6.13. What's known as kqueue on BSD and Mac OS X provides an efficient way to trace actions in the filesystem on Linux in real-time. Nowadays being based on the fsnotify backend all major Linux distributions provide proper Inotify support out of the box. To check whether your own kernel version supports Inotify as well, you can run the following command:
+
+    % grep INOTIFY_USER /boot/config-$(uname -r)
+    CONFIG_INOTIFY_USER=y
+
+If you get the same output ('CONFIG_INOTIFY_USER=y') you're ready for exploring Inotify in operation.
+
+#### A basic file-change notification example
+
+A good start to explore Inotify features is playing with the inotifywait utility from the inotify-tools package. Suppose we want to check for filesystem actions inside the directory /srv/test we can just run:
+
+    % inotifywait -rme modify,attrib,move,close_write,create,delete,delete_self /srv/test
+    Setting up watches.  Beware: since -r was given, this may take a while!
+    Watches established.
+
+While keeping the job running in another shell session we'll create a new directory, touch a new file and delete the file again:
+
+    % mkdir /srv/test/infoq
+    % echo TODO > /srv/test/infoq/article.txt
+    % rm /srv/test/infoq/article.txt
+
+Inside the shell session running the inotifywait command you should notice:
+
+    /srv/test/ CREATE,ISDIR infoq
+    /srv/test/infoq/ CREATE article.txt
+    /srv/test/infoq/ MODIFY article.txt
+    /srv/test/infoq/ CLOSE_WRITE,CLOSE article.txt
+    /srv/test/infoq/ DELETE article.txt
+
+As you can see you're notified about the changes just as soon as they happen. For details regarding the available events (modify, attrib,...) check out the inotifywatch(1) manpage. In operation mode you might have a large directory you don't want to include in monitoring. inotifywait provides an option to exclude directories from processing events. Assuming we want to ignore the directories /srv/test/large and /srv/test/ignore we can execute:
+
+    % inotifywait --exclude '^/srv/test/(large|ignore)/' -rme modify,attrib,move,close_write,create,delete,delete_self /srv/test
+    Setting up watches.  Beware: since -r was given, this may take a while!
+    Watches established.
+
+The pattern provided to the exclude option uses a regular expression which makes sure that it won't match the directories that should be ignored though matches files that could have the strings 'large' or 'ignore' inside their filename. As you can test through running:
+
+    % echo test > /srv/test/action.txt
+    % echo test > /srv/test/large/no_action.txt
+    % echo test > /srv/test/ignore/no_action.txt
+    % echo test > /srv/test/large-name-but-action.txt
+
+the inotifywait tool will report only about the changes in files 'action.txt' and 'large-name-but-action.txt' but ignores actions inside the subdirectories 'large' and 'ignore', just as intended:
+
+    /srv/test/ CREATE action.txt
+    /srv/test/ MODIFY action.txt
+    /srv/test/ CLOSE_WRITE,CLOSE action.txt
+    /srv/test/ CREATE large-name-but-action.txt
+    /srv/test/ MODIFY large-name-but-action.txt
+    /srv/test/ CLOSE_WRITE,CLOSE large-name-but-action.txt
+
+Notice that you can execute inotifywait for a defined period of time (using the '-t' option) as well as for setting up a permanent watch. Using a tool like util-linux-ng's logger(1) utility provides the possibility to also send such events to syslog and therefore collect them on your configured syslog server(s).
+
+#### inotifywatch - gather filesystem access statistics using inotify
+
+The other tool which is part of inotify-tools is inotifywatch. It listens for filesystem events and outputs a summary count of the events received on each file or directory. Give it a shot observing a directory where events take place, like:
+
+    % inotifywatch -v -e access -e modify -t 120 -r ~/InfoQ
+    Establishing watches...
+    Setting up watch(es) on /home/mika/InfoQ
+    OK, /home/mika/InfoQ is now being watched.
+    Total of 58 watches.
+    Finished establishing watches, now collecting statistics.
+    Will listen for events for 120 seconds.
+    total  modify  filename
+    2      2       /home/mika/InfoQ/inotify/
+
+As you can see I've been monitoring the directory ~/InfoQ and two events took place inside /home/mika/InfoQ/inotify. It's a simple though reliable way to trace such events.
+
+#### Configuration options for Inotify
+
+You should be aware of two configuration options inside the kernel when dealing with Inotify. The file /proc/sys/fs/inotify/max_user\_instances specifies the upper limit on the number of Inotify instances that can be created per real user ID. Another file is /proc/sys/fs/inotify/max_user_watches which specifies a limit on the number of watches that can be associated with each Inotify instance. You can easily try running into this limit through executing:
+
+    % inotifywait -r /
+    Setting up watches.  Beware: since -r was given, this may take a while!
+    Failed to watch /; upper limit on inotify watches reached!
+    Please increase the amount of inotify watches allowed per user via `/proc/sys/fs/inotify/max_user_watches'.
+
+To change one of these settings, just write the new limit to the appropriate file, e.g.:
+
+    # cat /proc/sys/fs/inotify/max_user_watches
+    8192
+    # echo 16000 > /proc/sys/fs/inotify/max_user_watches
+    # cat /proc/sys/fs/inotify/max_user_watches
+    16000
+
+#### Further utilities using Inotify
+
+Recently some nifty utilities using Inotify features came up. For example incron, being a cron-like daemon. Whereas usual cron daemons execute an action on a specific date/time, incron uses Inotify for being triggered by an event. The setup is simple and straight forward on e.g. Debian. As a first step just put the name of the user who should be allowed to configure incron jobs to the file /etc/incron.allow (because Debian doesn't allow usage of incron by default, as a bad usage of incron with (loops) could make the whole system hang):
+
+    # echo username > /etc/incron.allow
+
+Invoking "incrontab -e" will pop up an editor and you can insert your rule(s). A simple rule to be notified by mail every time a file is changed in /srv/test would be:
+
+    /srv/test/ IN_CLOSE_WRITE mail -s "$@/$#\n" root
+
+Now you should get a mail as soon as a file in /srv/test is changed. You should be aware of the limitation that incron can't monitor whole subtrees though. Inotify operates on inodes and doesn't care whether it's a file or directory - that's why Inotify based applications have to take care of recursion on their own. Further details regarding the syntax of incrontab are available in the incrontab(5) manpage.
+
+If you have to deal with incoming directories you should also check out inoticoming. Inoticoming triggers actions when files hit an incoming directory. This can be used for either maintaining a Debian repository (triggering a binary build as soon as a source package is uploaded or adding a binary package to the repository) as well as sending notifications out as soon as a file was uploaded to the system. Similar utilities specialised in other tasks are inosync (notification-based directory synchronization daemon), iwatch (realtime filesystem monitoring program using Inotify) and lsyncd (daemon to synchronize local directories using rsync).
+
+You should be aware that Inotify even improves the way common Unix tools like tail(1) can access files. The inotail tool was created to get rid of polling the file every second when using the follow mode (the '-f' option). GNU coreutils as of version 7.5 supports Inotify as well, as you can verify through running:
+
+    # strace -e inotify_init,inotify_add_watch tail -f ~log/syslog
+    [...]
+    inotify_init()                          = 4
+    inotify_add_watch(4, "/var/log/syslog", IN_MODIFY|IN_ATTRIB|IN_DELETE_SELF|IN_MOVE_SELF) = 1
+
+So there's no need to poll the file any longer to determine whether it needs to be reread.
+Using Inotify in your scripts
+
+The Inotify framework isn't limited to the available tools. If you'd like to use Inotify's features within your favourite script language check out the Python bindings pyinotify and inotifyx, the Perl bindings Filesys-Notify-Simple and Linux-Inotify2 as well as the Ruby bindings ruby-inotify rb-inotify and fssm.
+
+#### Conclusion
+
+As a conclusion of this article you should be aware of Inotify as an efficient way to trace events in the filesystem on Linux. Whereas polling introduces a delay in handling data the Inotify framework provides an option to handle, debug and monitor filesystem activities just as an event takes place. For the system administrator it provides a powerful way to implement event triggered services like backup systems and build servers as well as a simple way to debug applications based on their filesystem actions.
+
+### 2 linotify -- inotify的LUA binding
+
+[hoelzro/linotify](https://github.com/hoelzro/linotify)
+
+#### linotify
+
+A Lua binding for the Linux inotify library
+
+#### Building
+
+To build `inotify.so`, simply type `make`.
+
+#### Usage
+
+All of the constants are contained in the `inotify` table returned by
+require.  Constants are named after their counterparts in the C header
+file (for example: `inotify.IN_ACCESS`).
+
+The only function to be found in the inotify table is `init`, which returns an
+inotify handle.
+
+`init` can optionally take a table a single argument.  This table should
+contain attributes for the inotify handle's creation.  The supported
+attributes are:
+
+  * **blocking** - If set to false, the I/O operations performed on this
+    inotify handle are non-blocking.  Otherwise, they are blocking.
+
+Inotify handles have a variety of methods:
+
+###### handle:read()
+
+Reads events from the handle, returning a table.  Each element of the table
+is itself a table, with the members of the `inotify_event` struct as its
+keys and values (except for len).  If the handle is in non-blocking mode and
+no events are available, an empty table is returned. If an error occurs, `nil`,
+the error message, and errno are returned.
+
+###### handle:events()
+
+Returns an iterator that reads events from the handle, one at a time.
+Each value yielded from the iterator is a table with the members of the
+`inotify_event` struct as its keys and values (except for len).  If an
+error occurs during reading, an error is thrown.  If this method is
+run on a handle in non-blocking mode, it will yield events until no
+more events are available without blocking.
+
+###### handle:close()
+
+Closes the inotify event handle.  This is done automatically on garbage
+collection.
+
+###### handle:addwatch(path, [event_masks...])
+
+Adds a watch on `event_masks` for the file located at path, returning a
+watch identifier on success, and the traditional `nil, error, errno` triplet
+on error.  `event_masks` is a variadic sequence of integer constants, taken
+from `inotify.IN_*`.
+
+All of the values in `event_masks` are OR'd together but this can also be done
+manually with `bit.bor()`. The following two examples are equivalent:
+
+```lua
+-- Event masks passed as arguments
+local handle = inotify.init()
+local wd = handle:addwatch('/tmp/foo/', inotify.IN_CREATE, inotify.IN_MOVE)
+
+-- Event masks passed as a single, manually OR'd variable
+local handle = inotify.init()
+local options = bit.bor(inotify.IN_CREATE, inotify.IN_MOVE)
+local wd = handle:addwatch('/tmp/foo/', options)
+```
+
+###### handle:rmwatch(watchid)
+
+Removes the watch specified by watchid from the list of watches for this
+inotify handle.  Returns true on success, and `nil, error, errno` on error.
+
+###### handle:fileno()
+
+Returns the integer file descriptor for the given handle.  Useful when
+used in combination with an event loop.
+
+###### handle:getfd()
+
+Alias for [handle:fileno()](#handlefileno).
+
+#### Example
+
+```lua
+local inotify = require 'inotify'
+local handle = inotify.init()
+
+-- Watch for new files and renames
+local wd = handle:addwatch('/home/rob/', inotify.IN_CREATE, inotify.IN_MOVE)
+
+local events = handle:read()
+
+for _, ev in ipairs(events) do
+    print(ev.name .. ' was created or renamed')
+end
+
+-- Done automatically on close, I think, but kept to be thorough
+handle:rmwatch(wd)
+
+handle:close()
+```
+
+#### Example (Iterator)
+
+```lua
+local inotify = require 'inotify'
+local handle = inotify.init()
+
+-- Watch for new files and renames
+local wd = handle:addwatch('/home/rob/', inotify.IN_CREATE, inotify.IN_MOVE)
+
+for ev in handle:events() do
+    print(ev.name .. ' was created or renamed')
+end
+
+-- Done automatically on close, I think, but kept to be thorough
+handle:rmwatch(wd)
+
+handle:close()
+```
+
+#### No More Global Table
+
+As of version 0.3, the global `inotify` table has been completely removed.
+You now need to handle the return value from `require`, like so:
+
+```lua
+local inotify = require 'inotify'
+```
+
+### 3 应用实例
+
+
+### 参考资料
+
+1. [Inotify: Efficient, Real-Time Linux File System Event Monitoring](http://www.infoq.com/articles/inotify-linux-file-system-event-monitoring)
+2. [hoelzro/linotify](https://github.com/hoelzro/linotify)
