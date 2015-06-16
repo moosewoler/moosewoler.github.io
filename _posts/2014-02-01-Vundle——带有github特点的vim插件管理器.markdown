@@ -15,15 +15,15 @@ categories: 玩意儿
 
 1. 下载
 
-```
+{% highlight bash %}
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/Vundle.vim
-```
+{% endhighlight %}
 
 2. 配置
 
 在.vimrc顶部添加以下内容：
 
-```
+{% highlight vim %}
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -44,21 +44,21 @@ Plugin 'user/L9', {'name': 'newL9'}
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-```
+{% endhighlight %}
 
 ###用Vundle安装插件
 
 1. 在.vimrc中填写要安装的插件名字，比如要安装“neocomplete”的话，需要添加如下内容：
 
-```
+{% highlight vim %}
 Plugin 'Shougo/neocomplete.vim'
-```
+{% endhighlight %}
 
 2. 运行vim，输入
 
-```
+{% highlight vim %}
 :PluginInstall
-```
+{% endhighlight %}
 
 vim会提示目前被[vundle]管理的插件，并提示正在安装neocomple，稍等片刻插件就安装完毕了。
 
@@ -69,9 +69,9 @@ vim会提示目前被[vundle]管理的插件，并提示正在安装neocomple，
 
 2. vim中输入
 
-```
+{% highlight vim %}
 :PluginClean
-```
+{% endhighlight %}
 
 提示要被删除的插件名称，确认之后，插件就被删除。
 
