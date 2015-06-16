@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
 gem 'github-pages'
 gem 'execjs'  
 gem 'therubyracer'
