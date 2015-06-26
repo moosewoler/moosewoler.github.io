@@ -1,0 +1,61 @@
+---
+  layout: post
+  author: Moose W. Oler
+  abstract: 在每行80字符的地方自动添加换行符
+  categories: 玩意儿
+  tags:
+    - vim
+    - textwidth
+    - 自动换行
+    - 自动折行
+---
+
+### 设置方法
+
+{% highlight vim %}
+vim: set tw=80 fo+=Mm
+{% endhighlight %}
+
+这样正常写的文件到80个字符就会换行，对于已经存在的段落，只要选中它们，然后按gq就
+可以了。
+
+tw是textwidth的缩写，fo是formatoptions的缩写。
+
+`自动换行`是指当每行文本超过n个字符的时候vim自动添加换行符的行为。自动换行可以通
+过设置textwidth属性实现，即：
+
+{% highlight vim %}
+vim: set textwidth=80
+{% endhighlight %}
+
+只有新输入文本的才会触发自动换行。对于已经存在的文本段落，则不会触发自动换行。如
+果想对已存在的文本段落进行自动换行，只要选中它们（Normal模式下按大写V），然后按
+gq就可以了。
+
+需要注意的是，如果段落中某个单词很长，超出了textwidth设置的字符，这种情况下也不
+会触发自动换行。由于中文字词句之间没有空格，所以光靠设置textwidth是无法触发自动
+换行的。这时候需要通过设置formatoptions来解决：
+
+{% highlight vim %}
+vim: set formatoptions+=mM
+{% endhighlight %}
+
+m - 总是拆分大于255的多字节字符。这样vim就可以在汉字段落（以及其他东亚字符段落）
+中自动插入换行符了。
+
+M - 当合并行的时候，在多字节字符的前后不加空格。这个选项会覆盖B标志。这样可以保
+证自动换行的时候不出现多余的空格。
+
+`自动折行`是指把很长的一行文本段落用多行显示，但是不在文件里添加换行符。
+
+{% highlight vim %}
+" 设置自动折行(默认开启)
+set wrap
+" 设置不自动折行
+set nowrap
+{% endhighlight %}
+
+### 参考资料
+
+1. [如何让VIM到80个字符后自动换行](http://www.eetop.cn/blog/html/14/503514-39071.html)
+2. [VIM 的自动换行及自动折行设置](http://www.360doc.com/content/12/0629/11/3200886_221136457.shtml)
