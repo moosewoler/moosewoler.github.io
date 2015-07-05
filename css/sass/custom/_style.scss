@@ -66,6 +66,13 @@ main.container, main.content > .container{
   src: url('../font/TpldKhangXiDictTrial.otf');
 }
 
+@font-face {
+  font-family: "TyzSimKai";
+  font-style: normal;
+  font-weight: 400;
+  src: url('../font/TyzSimKai.ttf');
+}
+
 // 1. b Extends
 // --------------------------------------------------
 
@@ -98,7 +105,7 @@ main.container, main.content > .container{
 }
 
 .content h1{
-    font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Georgia, "Times New Roman", Times, 'TyzSimKai', serif;
      @extend .center-txt;
     font-size: 6em;  
     margin-top: 1em;
@@ -119,7 +126,7 @@ main.container, main.content > .container{
 .entries{
      @extend .center-txt;
     list-style: none;
-    font-family: 'OldNewspaperTypes';
+    font-family: 'OldNewspaperTypes', 'TyzSimKai';
     margin:2em 0 0;
 
     li{
@@ -135,7 +142,7 @@ main.container, main.content > .container{
     }
 
     h3{
-        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, serif;
+        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, 'TyzSimKai', serif;
         font-size: 2em;
         margin-top: 0.2em;
         @extend .a-hover;
@@ -170,7 +177,7 @@ main.container, main.content > .container{
 }
 
 #post-pagination{
-    font-family: Georgia, "Times New Roman", Times,  serif;
+    font-family: Georgia, "Times New Roman", Times, 'TyzSimKai', serif;
     margin-bottom: 3em;
 }
 
@@ -190,14 +197,14 @@ main.container, main.content > .container{
     h5{
          @extend .center-txt;
         margin:5em 0 -6em 0;
-        font-family: 'OldNewspaperTypes';
+        font-family: 'OldNewspaperTypes', 'TyzSimKai';
         text-transform: uppercase;
         font-weight: normal;
         letter-spacing: 0.6em;
     }
 
     h2{
-        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, serif;
+        font-family: 'OldNewspaperTypes',Georgia, "Times New Roman", Times, 'TyzSimKai', serif;
         @extend .center-txt;
         font-size: 5em;
         padding: 1.5em 0 0.5em;
@@ -205,7 +212,7 @@ main.container, main.content > .container{
     }
 
     section{
-        font-family: 'OldNewspaperTypes';
+        font-family: 'OldNewspaperTypes', 'TyzSimKai';
         line-height: 1.9em;
     }
 }
@@ -215,7 +222,7 @@ main.container, main.content > .container{
 
 footer .container{
     @extend .center-txt;
-    font-family: 'OldNewspaperTypes';
+    font-family: 'OldNewspaperTypes', 'TyzSimKai';
     color: $white;
     padding: 2em 0;
     font-size: 0.8em;
