@@ -50,7 +50,7 @@ bundler是ruby的软件包管理器，由它来负责维护jekyll会方便很多
 
     bundle install
 
-bundle会自动解救依赖和版本号的问题，可能会#需要root权限#。
+bundle会自动解决依赖和版本号的问题，可能会#需要root权限#。
 
 ###2 本地运行
 
