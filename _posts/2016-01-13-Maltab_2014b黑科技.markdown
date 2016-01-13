@@ -1,0 +1,32 @@
+---
+  layout: post
+  author: Moose W. Oler
+  abstract: Matlab 2014b黑科技
+  categories: 玩意儿
+  tags:
+    - Matlab
+    - 暴力破解
+---
+
+2015年年初的时候安装Linux 64位版Matlab，发现随安装包过来的神奇文件不管用，翻了翻
+网上，有人将
+
+[破解过程](http://blog.csdn.net/guochaoxxl/article/details/41378623)
+
+发了出来，过程不麻烦。到了年底，发现原来的文章配图全挂了，于是乎自己凭印象再写一
+遍，重点补图。
+
+破解步骤如下：
+
+先进行反汇编。要修改的函数有两个，一个是l_prikey_sign函数，一个是l_pubkey_verify
+函数。通过反汇编（objdump）定位到两个函数的首地址。
+
+破解采用“爆破”法，将函数的返回变量（保存于eax寄存器中）置0，然后直接返回。
+修改相应位置处的三个bytes为31 c0 c3
+
+![破解版libmwservices.so和原版libmwservices.so的比较](http://a.picphotos.baidu.com/album/s%3D550%3Bq%3D90%3Bc%3Dxiangce%2C100%2C100/sign=6d626cf8a086c9170c03523cf90601f2/d0c8a786c9177f3e9fa1740d77cf3bc79f3d561d.jpg?referer=6f83693732fae6cd55a39f5192f3&x=.jpg)
+
+由上图对比可发现，先用异或将eax置0,然后返回即可屏蔽验证。
+
+这样，我们就完成了对Matlab的破解。
+
