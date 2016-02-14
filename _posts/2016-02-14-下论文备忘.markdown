@@ -1,0 +1,22 @@
+---
+  layout: post
+  author: Moose W. Oler
+  abstract: 在外网用vpn上IEEE Xplore老是搜索不出论文，也就无法下论文。几经摸索，找到一条折衷之道。
+  categories: 玩意儿
+  tags:
+    - 下载论文
+    - 备忘
+---
+
+先在[IEEE Xplore](http://ieeexplore.ieee.org)直接搜索论文，找到合适的论文点击链
+接，会进入摘要页
+
+    http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6819029&queryText=bldcm&refinements=4291944246&ranges=2014_2016_Year&searchField=Search_All
+
+记下摘要页中的`arnumber`。
+
+登入VPN后，替换以下地址最后的arnumber即可直通论文下载页面：
+
+    https://vpn.cumtb.edu.cn/stamp/,DanaInfo=ieeexplore.ieee.org+stamp.jsp?tp=&arnumber=7273873
+
+
